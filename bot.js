@@ -1,6 +1,6 @@
 //  __   __  ___        ___
-// |__) /  \  |  |__/ |  |  
-// |__) \__/  |  |  \ |  |  
+// |__) /  \  |  |__/ |  |
+// |__) \__/  |  |  \ |  |
 
 // This is the main file for the botkit demooo bot.
 
@@ -24,15 +24,15 @@ if (process.env.MONGO_URI) {
 }
 
 
-const adapter = new TwilioAdapter({
+const adapter = null; //new TwilioAdapter({
 
     // REMOVE THIS OPTION AFTER YOU HAVE CONFIGURED YOUR APP!
-    enable_incomplete: true,
+//     enable_incomplete: true,
 
-    twilio_number: process.env.TWILIO_NUMBER,
-    account_sid: process.env.TWILIO_ACCOUNT_SID,
-    auth_token: process.env.TWILIO_AUTH_TOKEN,
-});
+//     twilio_number: process.env.TWILIO_NUMBER,
+//     account_sid: process.env.TWILIO_ACCOUNT_SID,
+//     auth_token: process.env.TWILIO_AUTH_TOKEN,
+// });
 
 
 const controller = new Botkit({
