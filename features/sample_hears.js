@@ -49,7 +49,7 @@ function initDialog(controller) {
       {
         pattern: /yes|yeah|ya|yep|y|right|correct/,
         handler: async (response, convo, bot) => {
-          await convo.gotoThread(CONCLUSION);
+          await bot.beginDialog('ONBOARDING_DIALOG_2');
         },
       },
       {

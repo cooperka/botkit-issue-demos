@@ -1,14 +1,14 @@
 const { BotkitConversation } = require('botkit');
 
-const ONBOARDING_DIALOG = 'ONBOARDING_DIALOG';
+const ONBOARDING_DIALOG = 'ONBOARDING_DIALOG_2';
 
 module.exports = function(controller) {
 
   initDialog(controller);
 
-  controller.hears(['hi', 'hello', 'hey'], 'message', async (bot) => {
-    await bot.beginDialog(ONBOARDING_DIALOG);
-  });
+  // controller.hears(['hi', 'hello', 'hey'], 'message', async (bot) => {
+  //   await bot.beginDialog(ONBOARDING_DIALOG);
+  // });
 
 }
 
@@ -22,15 +22,15 @@ function initDialog(controller) {
     controller,
   );
 
-  dialog.say('onboarding.welcome');
+  dialog.say('onboarding2.welcome');
 
   dialog.addAction(GET_DETAILS_THREAD);
 
-  dialog.addMessage('onboarding.startOver', REPEAT_DETAILS_THREAD);
+  dialog.addMessage('onboarding2.startOver', REPEAT_DETAILS_THREAD);
   dialog.addAction(GET_DETAILS_THREAD, REPEAT_DETAILS_THREAD);
 
   dialog.addQuestion(
-    'onboarding.askName',
+    'onboarding2.askName',
     [
       {
         default: true,
@@ -44,12 +44,12 @@ function initDialog(controller) {
   );
 
   dialog.addQuestion(
-    'onboarding.confirmation',
+    'onboarding2.confirmation',
     [
       {
         pattern: /yes|yeah|ya|yep|y|right|correct/,
         handler: async (response, convo, bot) => {
-          await convo.gotoThread(CONCLUSION);
+          await bot.beginDialog('ONBOARDING_DIALOG');
         },
       },
       {
@@ -63,7 +63,7 @@ function initDialog(controller) {
     GET_DETAILS_THREAD,
   );
 
-  dialog.addMessage('onboarding.success', CONCLUSION);
+  dialog.addMessage('onboarding2.success', CONCLUSION);
 
   controller.addDialog(dialog);
 }
