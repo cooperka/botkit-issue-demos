@@ -90,8 +90,12 @@ async function waitThenStartConvo() {
 
   console.log("Spawning!")
   const bot = await controller.spawn();
-  await bot.startConversationWithUser(global.reference);
-  await bot.say("Hi there");
+  try {
+    await bot.startConversationWithUser(global.reference);
+    await bot.say("Hi there");
+  } catch (error) {
+    console.error("Failed to startConversationWithUser:", error);
+  }
 }
 
 waitThenStartConvo();
