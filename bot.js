@@ -80,6 +80,18 @@ controller.webserver.get('/', (req, res) => {
 });
 
 
+async function waitThenStartConvo() {
+  if (!global.reference) {
+    // Try again soon.
+    console.log("Waiting...")
+    setTimeout(waitThenStartConvo, 1000);
+    return;
+  }
 
+  console.log("Spawning!")
+  const bot = await controller.spawn();
+  await bot.startConversationWithUser(global.reference);
+  await bot.say("Hi there");
+}
 
-
+waitThenStartConvo();
