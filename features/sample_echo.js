@@ -6,8 +6,9 @@
 module.exports = function(controller) {
 
     controller.hears('ref','message,direct_message', async(bot, message) => {
+        console.log("Heard it.")
         global.reference = message.reference;
-        await bot.reply(message, 'Reference set.');
+        await bot.reply(message, 'Reference set, you should get a message soon.');
     });
 
 }

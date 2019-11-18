@@ -83,7 +83,7 @@ controller.webserver.get('/', (req, res) => {
 async function waitThenStartConvo() {
   if (!global.reference) {
     // Try again soon.
-    console.log("Waiting...")
+    console.log("Waiting for 'ref' ...")
     setTimeout(waitThenStartConvo, 1000);
     return;
   }
