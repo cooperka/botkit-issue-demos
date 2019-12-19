@@ -1,10 +1,8 @@
-# Botkit Starter Kit
+# Botkit issue
 
-This is a Botkit starter kit for twilio-sms, created with the [Yeoman generator](https://github.com/howdyai/botkit/tree/master/packages/generator-botkit#readme).
-
-To complete the configuration of this bot, make sure to update the included `.env` file with your platform tokens and credentials.
-
-[Botkit Docs](https://botkit.ai/docs/v4)
-
-This bot is powered by [a folder full of modules](https://botkit.ai/docs/v4/core.html#organize-your-bot-code). 
-Edit the samples, and add your own in the [features/](features/) folder.
+Repro steps:
+1. Start the bot
+1. Say 'hi' to trigger onboarding
+1. Say anything for your name
+1. Say 'yes' to confirm and trigger onboarding2
+1. onboarding2 asks for your name, and immediately receives `{}` as a response without your input
